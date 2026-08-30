@@ -1,0 +1,49 @@
+[project]
+name = "langchain-policies"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "aiosqlite~=0.22",
+    "deepagents~=0.6.12",
+    "fastapi~=0.136",
+    "fastembed>=0.7,<1.0",
+    "harbor",
+    "langchain~=1.3.14",
+    "langchain-community~=0.4.2",
+    "langchain-mcp-adapters~=0.3.2",
+    "langchain-openai~=1.4.2",
+    "langgraph~=1.2.10",
+    "langgraph-checkpoint-sqlite~=3.1.1",
+    "langgraph-cli[inmem]~=0.4.31",
+    "langsmith[otel]~=0.10.17",
+    "openevals",
+    "pytest~=8.3",
+    "pytest-asyncio~=0.24",
+    "tavily-python~=0.7.21",
+    "typing-extensions~=4.15",
+    "uvicorn[standard]~=0.38",
+]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.14"
+
+# This repository intentionally uses a flat module layout.  Be explicit so
+# deployment builds do not mistake data directories such as ``resources`` for
+# Python packages during editable installation.
+[tool.setuptools]
+py-modules = [
+    "agent",
+    "main",
+]
+packages = ["policy"]
+
+[tool.pytest.ini_options]
+markers = [
+    "e2e: end-to-end tests that require a running 'langgraph dev' server (auto-skipped when no server is reachable)",
+]
+asyncio_mode = "auto"
+pythonpath = ["."]

@@ -1,0 +1,23 @@
+# Python-generated files
+__pycache__/
+.langgraph_api/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+credentials.json
+uv.lock
+
+.ropeproject
+.pytest_cache
+.github

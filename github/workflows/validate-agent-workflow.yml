@@ -1,0 +1,35 @@
+name: Validate agent workflow
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-agent-workflow:
+    name: Validate agent workflow (Python 3.14)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: .python-version
+
+      - name: Validate repository contract
+        run: python3 ci/validate_agent_workflow.py
+
+      - name: Test the validator
+        run: >-
+          python3 -m unittest discover
+          -s tests
+          -p 'test_validate_agent_workflow.py'
+          -v
