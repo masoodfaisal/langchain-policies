@@ -37,7 +37,6 @@ pythonVersion = "3.14"
 [tool.setuptools]
 py-modules = [
     "agent",
-    "main",
 ]
 packages = ["policy"]
 
