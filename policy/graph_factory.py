@@ -11,7 +11,6 @@ from langchain.agents.middleware import AgentMiddleware
 
 from agent import build_graph
 
-
 SAMPLE_POLICY_PATH = Path(__file__).with_name("sample-policy.py")
 POLICY_EXPORT = "POLICY_MIDDLEWARE"
 

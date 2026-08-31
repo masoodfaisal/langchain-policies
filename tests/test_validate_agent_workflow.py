@@ -7,7 +7,6 @@ from textwrap import dedent
 
 from ci.validate_agent_workflow import validate_agent_workflow
 
-
 SIGNATURE_ERROR = "build_graph must use: def build_graph(*, middleware=())"
 TOP_LEVEL_ERROR = "agent.py must define exactly one top-level build_graph function"
 GRAPH_EXPORT_ERROR = "agent.py must define exactly: graph = build_graph()"

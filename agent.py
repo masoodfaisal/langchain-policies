@@ -14,7 +14,6 @@ from langchain.agents.middleware import AgentMiddleware
 from langchain.tools import tool
 from langchain_openai import ChatOpenAI
 
-
 # Configure the main agent model.
 verify_ssl = os.getenv("OPENAI_VERIFY_SSL", "true").strip().lower() not in {
     "false",

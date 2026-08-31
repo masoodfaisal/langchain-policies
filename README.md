@@ -2,7 +2,7 @@
 
 ## Why this repository exists
 
-More software is being built using agentic patterns.
+More software is being built using agentic patterns such as business wokflows, software eco-system triage (provisioning and error resolution), security and more.
 Enterprises and regulated industries need runtime policies and guardrails for
 centralized governance, control, and compliance.
 
