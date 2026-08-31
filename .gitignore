@@ -16,7 +16,6 @@ wheels/
 *.key
 *.crt
 credentials.json
-uv.lock
 
 .ropeproject
 .pytest_cache
