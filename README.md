@@ -52,6 +52,16 @@ flowchart TD
     developer --> validate
     validate -->|"passes"| deploy
     release --> deploy
+
+    classDef governance fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef dev fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef ci fill:#fff8e1,stroke:#f9a825,stroke-width:2px,color:#e65100
+    classDef deployNode fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#4a148c
+
+    class define,release governance
+    class developer dev
+    class validate ci
+    class deploy deployNode
 ```
 
 The policy base image is built from [`policy-image/`](policy-image/) and
@@ -97,6 +107,25 @@ flowchart TD
         model -->|"tool call"| tools --> beforeModel
         model -->|"final response"| done
     end
+
+    classDef buildNode fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef startupNode fill:#fff8e1,stroke:#f9a825,stroke-width:2px,color:#e65100
+    classDef workerNode fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef policyNode fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:#880e4f
+    classDef modelNode fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#4a148c
+    classDef endNode fill:#eceff1,stroke:#455a64,stroke-width:2px,color:#263238
+
+    class developer,base,image buildNode
+    class wrapper,server startupNode
+    class factory,policy,compiledGraph workerNode
+    class beforeAgent,beforeModel policyNode
+    class model,tools modelNode
+    class done endNode
+
+    style build fill:#f5f9ff,stroke:#1565c0,stroke-dasharray:5 5
+    style container fill:#fffdf5,stroke:#f9a825,stroke-dasharray:5 5
+    style worker fill:#f6fbf6,stroke:#2e7d32,stroke-dasharray:5 5
+    style request fill:#fdf6f9,stroke:#c2185b,stroke-dasharray:5 5
 ```
 
 The phases work as follows.
